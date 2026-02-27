@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head style="font-family: Comic sans-serif;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* remove sublinhado e cor padrão dos links */
+        a {
+            text-decoration: none;
+            color: inherit; /* pega a cor do elemento pai */
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem; /* aumenta a fonte */
+            display: inline-block;
+            margin: 4px 0;
+        }
+        /* caso queira uma cor específica, substitua 'inherit' por '#000' ou outra */
+        a.active {
+            color: rgb(29, 226, 29);
+        }
+        div {
+            margin: 0;
+            background-color: transparent;
+            box-sizing: border-box;
+            border-radius: 5px;
+            transition: background-color 0.7s ease;
+        }
+        div.active {
+            background-color: rgba(122, 122, 122, 0.623);
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <div><a href="artistas/manelgomiz.html" target="detalheArtist">Manel Gomiz</a></div>
+        <div><a href="artistas/sotam.html" target="detalheArtist">SOTAM</a></div> 
+        <div><a href="artistas/fabioB.html" target="detalheArtist">Fábio Brazza</a></div>
+
+    </p>
+    <!-- Adicione outros links de artistas aqui, todos com target="detalheArtist" -->
+    <script>
+        // quando clicar em um artista, marca como ativo
+        const links = document.querySelectorAll('a[target="detalheArtist"]');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                // remove ativo de todos os links e divs
+                links.forEach(l => {
+                    l.classList.remove('active');
+                    l.parentElement.classList.remove('active');
+                });
+                // adiciona ativo no link clicado e sua div pai
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
