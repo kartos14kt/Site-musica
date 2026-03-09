@@ -14,15 +14,24 @@
 
     <div class="artistas">
         <h1 align="center">Artistas</h1>
-        <div class="nomes">
+        <div class="nomes" onclick="selecionarArtista(this)" data-artista="fabio">
             <p>Fabio</p>
         </div>
-        <div class="nomes">
+        
+        <div class="nomes" onclick="selecionarArtista(this)" data-artista="joao">
             <p>João</p>
         </div>
     </div>
+
     <div class="sobre">
         <h1 align="center">Sobre</h1>
+        <div class="listM">
+            aqui fica as musicas
+        </div>
+
+        <div class="letras">
+            aqui fica as letras quando clicar em alguma musica
+        </div>
     </div>
     <script src="player.js"></script>
 </body>

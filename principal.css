@@ -21,14 +21,25 @@
         .sobre {
             overflow-y: auto;
             background-color: #222;
-            float: right;
+            float: right;   
             padding: 0;
-            text-align: center;
+            text-align: left; padding-left: 15px;
             width: 68%; height: 80%;
             margin-top: 40px; margin-right: 5px;
         }
+
+
+        .listM {
+            height: 40%;
+            background-color: aqua;
+        }
+        .letras {
+            background-color: rgb(57, 242, 248);
+        }
+
+
         .nomes {
-            width: 100%;
+            width: 100%; padding-left: 5px;
             height: 30px;
             background: #22222200;
             font-size: 20px;
@@ -39,6 +50,21 @@
         }
         .nomes.ativo {
             background-color: rgba(128, 128, 128, 0.5);
+            color:  rgb(57, 242, 248);
+        }
+        .musica {
+            width: 100%; padding-left: 5px;
+            height: 30px;
+            background: #22222200;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+        }
+        .musica.ativo {
+            background-color: rgba(128, 128, 128, 0.5);
+            color:  rgb(57, 242, 248);
         }
 
 
