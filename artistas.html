@@ -39,10 +39,11 @@
     </p>
     <!-- Adicione outros links de artistas aqui, todos com target="detalheArtist" -->
     <script>
-        // quando clicar em um artista, marca como ativo
+        // quando clicar em um artista, marca como ativo e carrega no parent
         const links = document.querySelectorAll('a[target="detalheArtist"]');
         links.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // impede navegação normal
                 // remove ativo de todos os links e divs
                 links.forEach(l => {
                     l.classList.remove('active');
@@ -51,6 +52,8 @@
                 // adiciona ativo no link clicado e sua div pai
                 link.classList.add('active');
                 link.parentElement.classList.add('active');
+                // envia mensagem para o parent carregar a página
+                parent.postMessage({type: 'loadPage', url: link.href}, '*');
             });
         });
     </script>
