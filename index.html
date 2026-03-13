@@ -12,27 +12,69 @@
 </head>
 <body>
 
-    <div class="artistas">
-        <h1 align="center">Artistas</h1>
-        <div class="nomes" onclick="selecionarArtista(this)" data-artista="fabio">
-            <p>Fabio</p>
+<div class="layout">
+<!-- artistas-->
+    <div class="coluna-esquerda">
+
+        <div class="artistas">
+            <h1 align="center">Artistas</h1>
+
+            <div class="nomes" onclick="selecionarArtista(this)" data-artista="fabio">
+                <p>Fabio</p>
+            </div>
+
+            <div class="nomes" onclick="selecionarArtista(this)" data-artista="joao">
+                <p>João</p>
+            </div>
         </div>
-        
-        <div class="nomes" onclick="selecionarArtista(this)" data-artista="joao">
-            <p>João</p>
+
+        <div class="extra">
+            
+            
+            <!-- player de música -->
+            <div class="player">
+                
+                <div class="top-player">
+                    
+                    <img src="capa.avif" class="capa">
+                    
+                </div>
+                <div class="info">
+                    <div class="titulo" id="titulo">Nenhuma música</div>
+                    <div class="artista" id="artista">aaaaaaa</div>
+                </div>
+                
+                <div class="barra">
+                    <input type="range" value="0" min="0" max="100" class="progresso">
+                </div>
+                
+                <div class="controles">
+                    <button class="btn">⏮</button>
+                    <button class="pause" id="play">⏯</button>
+                    <button class="btn">⏭</button>
+                </div>
+                
+                <audio id="audio"></audio>
+            </div>
         </div>
+
     </div>
 
+
+
+<!-- musicas e letras-->
     <div class="sobre">
-        <h1 align="center">Sobre</h1>
+
         <div class="listM">
             aqui fica as musicas
         </div>
 
         <div class="letras">
-            aqui fica as letras quando clicar em alguma musica
+            aqui fica as letras
         </div>
     </div>
+
+</div>
     <script src="player.js"></script>
 </body>
 </html>

@@ -45,3 +45,4 @@ function selecionarMusica(elemento){
 
     elemento.classList.add("ativo");
 }
+

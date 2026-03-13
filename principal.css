@@ -1,92 +1,233 @@
-        body {
-            margin: 0;
-            background-color: rgb(0, 0, 0);
-            height: 100vh; /* ocupa toda a altura da tela */
-        }
-        div {
-            box-sizing: border-box;
-            border-radius: 5px;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .artistas {
-            overflow-y: auto;
-            background-color: #222;
-            float: left;
-            padding: 5px;
-            text-align: left;
-            width: 30%; height: 300px;
-            margin-top: 40px; margin-left: 15px;
-        }
-        .sobre {
-            overflow-y: auto;
-            background-color: #222;
-            float: right;   
-            padding: 0;
-            text-align: left; padding-left: 15px;
-            width: 68%; height: 80%;
-            margin-top: 40px; margin-right: 5px;
-        }
+body {
+    margin: 0;
+    background-color: black;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* layout principal */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* coluna esquerda */
+.coluna-esquerda {
+    width: 30%;
+    margin-left: 15px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* artistas */
+.artistas {
+    background-color: #222;
+    padding: 5px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+/* player / extra */
+.extra {
+    background-color: #222;
+    height: 562px;
+    padding: 10px;
+}
+
+/* coluna direita */
+.sobre {
+    width: 68%;
+    margin: 40px 5px 0 15px;
+    padding: 10px 10px 10px 10px;
+    height: 90%;
+    background-color: #222;
+    overflow-y: auto;
+}
+
+/* conteúdo dentro da sobre */
+.listM {
+    height: 30%;
+    padding: 5px;
+    overflow-y: auto;
+    background-color: #1d1d1d;
+}
+
+.letras {
+    height: 65%;
+    margin-top: 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background-color: #1d1d1d;
+}
+
+/* estilo padrão das divs */
+div {
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* nomes dos artistas */
+.nomes {
+    height: 30px;
+    padding-left: 5px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.nomes.ativo {
+    background-color: rgba(128,128,128,0.5);
+    color: rgb(57,242,248);
+}
+
+/* lista de músicas */
+.musica {
+    height: 30px;
+    padding-left: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.musica.ativo {
+    background-color: rgba(128,128,128,0.5);
+    color: rgb(57,242,248);
+}
+
+/* scrollbar */
+.artistas::-webkit-scrollbar,
+.sobre::-webkit-scrollbar {
+    width: 10px;
+}
+
+.artistas::-webkit-scrollbar-track,
+.sobre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.artistas::-webkit-scrollbar-thumb,
+.sobre::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 5px;
+}
+
+.artistas::-webkit-scrollbar-thumb:hover,
+.sobre::-webkit-scrollbar-thumb:hover {
+    background: #8a8a8a;
+}
 
 
-        .listM {
-            height: 40%;
-            background-color: aqua;
-        }
-        .letras {
-            background-color: rgb(57, 242, 248);
-        }
 
+.player{
+    background-color: none;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
 
-        .nomes {
-            width: 100%; padding-left: 5px;
-            height: 30px;
-            background: #22222200;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.5s ease;
-            cursor: pointer;
-        }
-        .nomes.ativo {
-            background-color: rgba(128, 128, 128, 0.5);
-            color:  rgb(57, 242, 248);
-        }
-        .musica {
-            width: 100%; padding-left: 5px;
-            height: 30px;
-            background: #22222200;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.5s ease;
-            cursor: pointer;
-        }
-        .musica.ativo {
-            background-color: rgba(128, 128, 128, 0.5);
-            color:  rgb(57, 242, 248);
-        }
+    grid-template-rows:
+        200px   /* capa grande */
+        30px    /* titulo + artista */
+        75px    /* barra */
+        100px;   /* controles */
 
+    gap: 10px;
 
+    height: 100%;
+}
 
+/* capa */
+.capa{
+    background-color: rgba(255, 166, 0, 0);
 
-        /* largura da barra */
-        .artistas::-webkit-scrollbar {
-            width: 10px;
-        }
+    grid-row: 1;
 
-        /* fundo da barra */
-        .artistas::-webkit-scrollbar-track {
-            background: transparent;
-        }
+    display: block;
+    margin: auto;
 
-        /* retângulo que desliza */
-        .artistas::-webkit-scrollbar-thumb {
-            background: #5a5a5a;
-            border-radius: 5px;
-        }
+    width: 180px;
+    height: 180px;
 
-        /* quando passa o mouse */
-        .artistas::-webkit-scrollbar-thumb:hover {
-            background: #8a8a8a;
-        }
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* artista */
+.info{
+    background-color: rgba(0, 128, 0, 0);
+    height: auto;
+    grid-row: 2;
+    height: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* musica */
+.titulo{
+    background-color: rgba(0, 0, 255, 0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.artista{
+    color: #aaa;
+}
+
+/* barra */
+.barra{
+    padding-top: 25px; margin-right: 10;
+    background-color: rgba(255, 255, 0, 0);
+    height: 50px;
+    grid-row: 3;
+}
+
+.progresso{
+    width: 100%;
+}
+
+/* controles */
+.controles{
+    background-color: rgba(128, 0, 128, 0);
+
+    grid-row: 4;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* botões */
+.btn{
+    margin-top: 5px;
+    background: green;
+    width: 45px; height: 45px;
+    border-radius: 50%; border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+    color: rgb(57,242,248);
+}
+.pause{
+    background: green;
+    width: 60px; height: 60px;
+    border-radius: 50%; border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s background-color 0.5s ease;
+}
+.pause:hover{
+    transform: scale(1.2);
+    color: rgb(57,242,248);
+}
